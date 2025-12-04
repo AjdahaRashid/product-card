@@ -34,7 +34,7 @@
   position: relative;
 }
 
-.cord-container {
+.card-container {
   width: 340px;
   height: 573px;
   padding: 25px;
@@ -91,7 +91,7 @@
 
 .bg-flowers {
   position: absolute;
-  background-image:(url(images/bg-flowers.png));
+  background-image:url(images/bg-flowers.png);
   background-repeat: repeat;
   background-size: 790px;
   width: 790px;
@@ -99,4 +99,12 @@
   z-index: -1;
   left: 85px;
   top: -420px;
+}
+
+.action-button.color-btn {
+  background-color: chartreuse !important;
+}
+
+.action-button.color-btn.active {
+  background-color: #f56565 !important;
 }
