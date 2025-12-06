@@ -54,7 +54,7 @@ productTitle.addEventListener('mouseover',() => {
 
 // Меняем цвет кнопки
 
-const btn = document.querySelector('.color-btn');
-btn.addEventListener('click', function() {
-    this.classList.toggle('active');
+document.getElementById('color-toggle-button').addEventListener('click', function() {
+  this.classList.toggle('bg-red');
+  this.classList.toggle('bg-blue');
 });
