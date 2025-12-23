@@ -7,7 +7,7 @@ function showWeather(city,temperature) {
 showWeather("Москва",22)
 
 //Задание 4
-const speedOflight = 299792458; //м/с
+const SPEED_OF_LIGHT = 299792458; //м/с
 
 function checkSpeed(speed) {
   if (speed > speedOflight) {
