@@ -19,29 +19,29 @@ console.log(myCar);
 
 // задание 5
 
-function checkingTheMaximumSpeed(carObj) {
+function addMaxSpeedIfMissing(carObj) {
   if (carObj.maxSpeed) {
     carObj.maxSpeed = 350;
   }
 }
-checkingTheMaximumSpeed(myCar);
+addMaxSpeedIfMissing(myCar);
 console.log(myCar)
 
 // задание 6
 
-function displayInfo(obj, prop) {
+function printObjectProperty(obj, prop) {
   console.log(obj[prop])
 }
-displayInfo(myCar,"model")
+printObjectProperty(myCar,"model")
 
 // задание 7
 
-let products = ["Блины","Варенье","Чай"]
+const products = ["Блины","Варенье","Чай"]
 console.log(products)
 
 // задание 8
 
-let books = [
+const books = [
   {
     name: "Преступление и наказание",
     author: "Федор Достоевский",
