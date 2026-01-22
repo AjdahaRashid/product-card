@@ -19,12 +19,12 @@ console.log(myCar);
 
 // задание 5
 
-function addMaxSpeedIfMissing(carObj) {
+function speedTest(carObj) {
   if (carObj.maxSpeed) {
     carObj.maxSpeed = 350;
   }
 }
-addMaxSpeedIfMissing(myCar);
+speedTest(myCar);
 console.log(myCar)
 
 // задание 6
