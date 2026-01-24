@@ -19,12 +19,12 @@ console.log(myCar);
 
 // задание 5
 
-function speedTest(carObj) {
+function checkMaxSpeedAvailability(carObj) {
   if (carObj.maxSpeed) {
     carObj.maxSpeed = 350;
   }
 }
-speedTest(myCar);
+checkMaxSpeedAvailability(myCar);
 console.log(myCar)
 
 // задание 6
