@@ -1,29 +1,28 @@
+import { socialComments } from "./comments.js";
+console.log(socialComments)
+
+
 // задания 2
-const numbers = [1,2,3,4,5,6,7,8,9,10]
+const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 const filteredNumbers = numbers.filter(number => number >= 5)
 console.log(filteredNumbers)
 
 // задание 3
 
-const cars = ["mercedes","bmw","audi"]
+const cars = ["mercedes", "bmw", "audi"]
 const newArray = cars.includes("jeep")
 console.log(newArray)
 
 // задание 4 
 
-function reverse(arr) {
+function reverseArray(arr) {
   return arr.reverse();
 }
 
-const reversedNumbers = reverse(filteredNumbers);
-const reversedCars = reverse(cars);
-console.log (filteredNumbers)
-console.log (cars)
-
-// задание 6
-
-import { socialComments } from "./comments.js";
-console.log(socialComments)
+const reversedNumbers = reverseArray(filteredNumbers);
+const reversedCars = reverseArray(cars);
+console.log(filteredNumbers)
+console.log(cars)
 
 // задание 7
 
@@ -52,7 +51,7 @@ console.log(cards)
 
 const checkedCommets = socialComments.map(item => ({
   ...item,
-  isInvalid: item.body.length > 180 
+  isInvalid: item.body.length > 180
 }));
 console.log(checkedCommets)
 
