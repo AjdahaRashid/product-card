@@ -26,8 +26,8 @@ console.log(cars);
 
 // задание 7
 
-const authorsWithComEmail = socialComments.filter(authorData => authorData.email.includes(".com"))
-console.log(authorsWithComEmail)
+const authorsWithComEmail = socialComments.filter(authorData => authorData.email.includes(".com"));
+console.log(authorsWithComEmail);
 
 // задание 8
 
