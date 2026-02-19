@@ -7,7 +7,7 @@ function renderAllCards() {
     products.forEach(product => {
         const card = template.content.cloneNode(true);
 
-        card.querySelector('img').src = `images/${product.imageFileName}`;
+        card.querySelector('img').src = `images/${product.imageFileName}.png`;
         card.querySelector('img').alt = product.name;
         card.querySelector('.product-category').textContent = product.category;
         card.querySelector('.product-name').textContent = product.name;
@@ -44,8 +44,11 @@ console.log(descriptionArray);
 function getCountFromUser() {
     while (true) {
         const input = prompt('Сколько карточек отобразить? От 1 до 5');
-        if (input) return 5;
+        if (input === null) return 5;
         const num = Number(input);
+        if (!isNan(num) && Number.isInteger(num) && num >= 1 && num <= 5) {
+            return num;
+        }
         alert('Ошибка! Введите целое число от 1 до 5.');
     }
 }
