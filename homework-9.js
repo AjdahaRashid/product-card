@@ -1,14 +1,16 @@
 // 1 часть
 
 const subFrom = document.querySelector('#subscribe-form');
-const emailInput = document.querySelector('#subscribe-email');
-subFrom.addEventListener('submit',function(event) {
-  event.preventDefault();
-  if (subFrom.checkValidity()) {
-    const userEmail = emailInput.value;
-    console.log({email:userEmail});
-  }
-})
+
+subFrom.addEventListener('submit', function(event) {
+event.preventDefault();
+
+if (subFrom.checkValidity()) {
+  const userEmail = subFrom.nextElementSibling.email.value;
+  console.log({ email: userEmail});
+  subFrom.reset();
+}
+});
 
 // 2 часть
 
@@ -36,8 +38,10 @@ let user = null;
 regForm.addEventListener('submit', function(event) {
   event.preventDefault();
 
-  const password = document.querySelector('#reg-password').value;
-  const confirmPassword = document.querySelector('#reg-password-confirm').value;
+  const { elements } = regForm;
+
+  const password = elements.password.value;
+  const confirmPassword = elements.confirmPassword.value;
 
   if (password !== confirmPassword) {
     alert('Регистрация отклонена: пороли не совпадают!');
@@ -45,9 +49,9 @@ regForm.addEventListener('submit', function(event) {
   }
   if (regForm.checkValidity()) {
     user = {
-      firstName: regForm.querySelector('[name="firstName"]').value,
-      lastName: regForm.querySelector('[name="lastName"]').value,
-      login: regForm.querySelector('[name="login"]').value,
+      firstName: elements.firstName.value,
+      lastName: elements.lastName.value,
+      login: elements.login.value,
       createdOn: new Date()
     };
     console.log('Успешная регистрация!', user);
