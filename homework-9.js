@@ -2,14 +2,14 @@
 
 const subFrom = document.querySelector('#subscribe-form');
 
-subFrom.addEventListener('submit', function(event) {
-event.preventDefault();
+subFrom.addEventListener('submit', function (event) {
+  event.preventDefault();
 
-if (subFrom.checkValidity()) {
-  const userEmail = subFrom.nextElementSibling.email.value;
-  console.log({ email: userEmail});
-  subFrom.reset();
-}
+  if (subFrom.checkValidity()) {
+    const userEmail = subFrom.nextElementSibling.email.value;
+    console.log({ email: userEmail });
+    subFrom.reset();
+  }
 });
 
 // 2 часть
@@ -19,11 +19,11 @@ const openButton = document.querySelector('#open-modal-btn');
 const closeButton = document.querySelector('.close-btn')
 const overlay = document.querySelector('.overlay')
 
-openButton.addEventListener('click', function() {
+openButton.addEventListener('click', function () {
   modalContainer.classList.add('modal-showed');
 });
 
-const closeModal = function() {
+const closeModal = function () {
   modalContainer.classList.remove('modal-showed');
 };
 
@@ -35,7 +35,7 @@ overlay.addEventListener('click', closeModal);
 const regForm = document.querySelector('#registration-form');
 let user = null;
 
-regForm.addEventListener('submit', function(event) {
+regForm.addEventListener('submit', function (event) {
   event.preventDefault();
 
   const { elements } = regForm;
@@ -44,14 +44,13 @@ regForm.addEventListener('submit', function(event) {
   const confirmPassword = elements.confirmPassword.value;
 
   if (password !== confirmPassword) {
-    alert('Регистрация отклонена: пороли не совпадают!');
+    alert('Регистрация отклонена: пароли не совпадают!');
     return;
   }
   if (regForm.checkValidity()) {
+    const formDataObj = Object.formEntries(new FormData(regForm));
     user = {
-      firstName: elements.firstName.value,
-      lastName: elements.lastName.value,
-      login: elements.login.value,
+      ...formDataObj,
       createdOn: new Date()
     };
     console.log('Успешная регистрация!', user);
