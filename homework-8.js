@@ -1,10 +1,10 @@
 import { products } from './products-data.js';
 
-function renderAllCards() {
+function renderCards(productsArray) {
     const container = document.querySelector('.container-list');
     const template = document.getElementById('product-card-template');
 
-    products.forEach(product => {
+    productsArray.forEach(product => {
         const card = template.content.cloneNode(true);
 
         card.querySelector('img').src = `images/${product.imageFileName}.png`;
@@ -27,7 +27,6 @@ function renderAllCards() {
     });
 }
 
-document.addEventListener('DOMContentLoaded', renderAllCards);
 
 // задание 4
 
@@ -46,7 +45,7 @@ function getCountFromUser() {
         const input = prompt('Сколько карточек отобразить? От 1 до 5');
         if (input === null) return 5;
         const num = Number(input);
-        if (!isNan(num) && Number.isInteger(num) && num >= 1 && num <= 5) {
+        if (!isNaN(num) && Number.isInteger(num) && num >= 1 && num <= 5) {
             return num;
         }
         alert('Ошибка! Введите целое число от 1 до 5.');
