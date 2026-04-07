@@ -10,9 +10,9 @@ showWeather("Москва",22)
 const SPEED_OF_LIGHT = 299792458; //м/с
 
 function checkSpeed(speed) {
-  if (speed > speedOflight) {
+  if (speed > SPEED_OF_LIGHT) {
     console.log("Сверхсветовая скорость");
-  } else if (speed < speedOflight) {
+  } else if (speed < SPEED_OF_LIGHT) {
     console.log("Субсветовая скорость");
   } else {
     console.log("Скорость света");

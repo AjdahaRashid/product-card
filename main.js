@@ -1,3 +1,13 @@
+import './homework-5.js';
+import './homework-6.js';
+import './homework-7.js';
+import './homework-9.js';
+
+import './Inventory.js';
+import {Modal} from'./Modal.js';
+import {Form} from'./Form.js';
+
+
 // Покраска всех карточек
 
 const productCards = document.querySelectorAll('.card-container');
@@ -58,3 +68,42 @@ document.getElementById('color-toggle-button').addEventListener('click', functio
   this.classList.toggle('bg-red');
   this.classList.toggle('bg-blue');
 });
+
+
+
+
+
+
+
+// Инициализируем модалку и форму
+const registrationModal = new Modal('modal-container');
+const registrationForm = new Form('registration-form');
+
+registrationModal.init();
+
+// Слушаем кнопку открытия (в HTML id="open-modal-btn")
+const openBtn = document.getElementById('open-modal-btn');
+if (openBtn) {
+    openBtn.addEventListener('click', () => {
+        registrationModal.open();
+    });
+}
+
+// Обработка отправки формы
+const formElement = document.getElementById('registration-form');
+if (formElement) {
+    formElement.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const data = registrationForm.getFormData();
+        // Проверка совпадения паролей
+        if (data.password !== data.confirmPassword) {
+            alert("Пароли не совпадают!");
+            return;
+        }
+        console.log("Данные успешно собраны через классы:", data);
+        alert('Спасибо за регистрацию, ${data.firstName}!');
+        
+        registrationForm.clear();    // Очистить поля
+        registrationModal.close();   // Закрыть окно
+    });
+} 
