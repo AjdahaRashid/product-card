@@ -4,9 +4,9 @@ import './homework-7.js';
 import './homework-9.js';
 
 import './Inventory.js';
-import {Modal} from'./Modal.js';
-import {Form} from'./Form.js';
-import {BeautyProduct} from'./BeautyProduct.js';
+import {Modal } from'./Modal.js';
+import {Form } from'./Form.js';
+import {BeautyProduct } from'./BeautyProduct.js';
 
 
 // Покраска всех карточек
@@ -15,10 +15,9 @@ const productCards = document.querySelectorAll('.card-container');
 const changeColorAllCardButton = document.querySelector('#change-color-all-card');
 const greenColorHash = '#00ff00';
 const blueColorHash = '#0000ff';
-
 changeColorAllCardButton.addEventListener('click',() => {
  productCards.forEach((card) => card.style.backgroundColor = greenColorHash)
-})
+});
 
 // Покраска первой карточки
 
@@ -32,13 +31,13 @@ changeColorFirstCardButton.addEventListener('click', () => {
 // Открыть google
 
 const openGoogleButtom = document.querySelector('#open-google');
-openGoogleButtom.addEventListener('click', openGoogle)
+openGoogleButtom.addEventListener('click', openGoogle);
 
 function openGoogle() {
   const answer = confirm('Вы действительно хотите открыть Google?');
 
   if (answer === true) {
-    window.open('https://google.com')
+    window.open('https://google.com');
   } else {
     return;
   }
@@ -46,20 +45,20 @@ function openGoogle() {
 
 // Вывод консоль лог
 
-const outputLogButton = document.querySelector('#output-console-log')
+const outputLogButton = document.querySelector('#output-console-log');
 
-outputLogButton.addEventListener('click',() => outputConsoleLog("ДЗ №4"))
+outputLogButton.addEventListener('click', () => outputConsoleLog("ДЗ №4"));
 
 function outputConsoleLog(message) {
-  alert(message)
-  console.log(message)
-} 
+  alert(message);
+  console.log(message);
+}
 
 // Когда наводим на заголовок- выводим текст в консоль
 
 const productTitle = document.querySelector('.product-title');
 
-productTitle.addEventListener('mouseover',() => {
+productTitle.addEventListener('mouseover', () => {
   console.log('Текст заголовка',productTitle.textContent);
 })
 
