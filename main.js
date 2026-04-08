@@ -6,6 +6,7 @@ import './homework-9.js';
 import './Inventory.js';
 import {Modal} from'./Modal.js';
 import {Form} from'./Form.js';
+import {BeautyProduct} from'./BeautyProduct.js';
 
 
 // Покраска всех карточек
@@ -68,19 +69,10 @@ document.getElementById('color-toggle-button').addEventListener('click', functio
   this.classList.toggle('bg-red');
   this.classList.toggle('bg-blue');
 });
-
-
-
-
-
-
-
 // Инициализируем модалку и форму
 const registrationModal = new Modal('modal-container');
 const registrationForm = new Form('registration-form');
-
 registrationModal.init();
-
 // Слушаем кнопку открытия (в HTML id="open-modal-btn")
 const openBtn = document.getElementById('open-modal-btn');
 if (openBtn) {
@@ -88,7 +80,6 @@ if (openBtn) {
         registrationModal.open();
     });
 }
-
 // Обработка отправки формы
 const formElement = document.getElementById('registration-form');
 if (formElement) {
@@ -106,4 +97,12 @@ if (formElement) {
         registrationForm.clear();    // Очистить поля
         registrationModal.close();   // Закрыть окно
     });
-} 
+}
+const myMousse = new BeautyProduct(
+  "Увлажняющий мусс",
+  2750,
+  "Очищения",
+  ["Витамин С", "Алоэ", "Вода"]
+);
+myMousse.logBasicInfo();
+myMousse.showIngredients();
