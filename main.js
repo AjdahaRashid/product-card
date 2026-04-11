@@ -4,9 +4,9 @@ import './homework-7.js';
 import './homework-9.js';
 
 import './Inventory.js';
-import {Modal } from'./Modal.js';
-import {Form } from'./Form.js';
-import {BeautyProduct } from'./BeautyProduct.js';
+import { Modal } from'./Modal.js';
+import { Form } from'./Form.js';
+import { BeautyMousse } from'./BeautyMousse.js';
 
 
 // Покраска всех карточек
@@ -15,7 +15,7 @@ const productCards = document.querySelectorAll('.card-container');
 const changeColorAllCardButton = document.querySelector('#change-color-all-card');
 const greenColorHash = '#00ff00';
 const blueColorHash = '#0000ff';
-changeColorAllCardButton.addEventListener('click',() => {
+changeColorAllCardButton.addEventListener('click', () => {
  productCards.forEach((card) => card.style.backgroundColor = greenColorHash)
 });
 
@@ -71,7 +71,6 @@ document.getElementById('color-toggle-button').addEventListener('click', functio
 // Инициализируем модалку и форму
 const registrationModal = new Modal('modal-container');
 const registrationForm = new Form('registration-form');
-registrationModal.init();
 // Слушаем кнопку открытия (в HTML id="open-modal-btn")
 const openBtn = document.getElementById('open-modal-btn');
 if (openBtn) {
@@ -91,13 +90,13 @@ if (formElement) {
             return;
         }
         console.log("Данные успешно собраны через классы:", data);
-        alert('Спасибо за регистрацию, ${data.firstName}!');
+        alert(`Спасибо за регистрацию, ${data.firstName}!`);
         
         registrationForm.clear();    // Очистить поля
         registrationModal.close();   // Закрыть окно
     });
 }
-const myMousse = new BeautyProduct(
+const myMousse = new BeautyMousse(
   "Увлажняющий мусс",
   2750,
   "Очищения",

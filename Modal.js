@@ -7,20 +7,21 @@ export class Modal {
 
     open() {
         this.modal.classList.add('modal-showed');
+        this.#init();
     }
 
     close() {
         this.modal.classList.remove('modal-showed');
     }
 
-    init() {
+    #init() {
         // Клик по крестику
         if (this.closeBtn) {
-            this.closeBtn.addEventListener('click', () => this.close());
+            this.closeBtn.addEventListener('click', () => this.close(), { once: true });
         }
         // Клик по темному фону (оверлею)
         if (this.overlay) {
-            this.overlay.addEventListener('click', () => this.close());
+            this.overlay.addEventListener('click', () => this.close(), { once: true });
         }
     }
 }
