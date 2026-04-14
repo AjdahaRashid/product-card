@@ -1,13 +1,23 @@
+import './homework-5.js';
+import './homework-6.js';
+import './homework-7.js';
+import './homework-9.js';
+
+import './Inventory.js';
+import { Modal } from'./Modal.js';
+import { Form } from'./Form.js';
+import { BeautyMousse } from'./BeautyMousse.js';
+
+
 // Покраска всех карточек
 
 const productCards = document.querySelectorAll('.card-container');
 const changeColorAllCardButton = document.querySelector('#change-color-all-card');
 const greenColorHash = '#00ff00';
 const blueColorHash = '#0000ff';
-
-changeColorAllCardButton.addEventListener('click',() => {
+changeColorAllCardButton.addEventListener('click', () => {
  productCards.forEach((card) => card.style.backgroundColor = greenColorHash)
-})
+});
 
 // Покраска первой карточки
 
@@ -21,13 +31,13 @@ changeColorFirstCardButton.addEventListener('click', () => {
 // Открыть google
 
 const openGoogleButtom = document.querySelector('#open-google');
-openGoogleButtom.addEventListener('click', openGoogle)
+openGoogleButtom.addEventListener('click', openGoogle);
 
 function openGoogle() {
   const answer = confirm('Вы действительно хотите открыть Google?');
 
   if (answer === true) {
-    window.open('https://google.com')
+    window.open('https://google.com');
   } else {
     return;
   }
@@ -35,20 +45,20 @@ function openGoogle() {
 
 // Вывод консоль лог
 
-const outputLogButton = document.querySelector('#output-console-log')
+const outputLogButton = document.querySelector('#output-console-log');
 
-outputLogButton.addEventListener('click',() => outputConsoleLog("ДЗ №4"))
+outputLogButton.addEventListener('click', () => outputConsoleLog("ДЗ №4"));
 
 function outputConsoleLog(message) {
-  alert(message)
-  console.log(message)
-} 
+  alert(message);
+  console.log(message);
+}
 
 // Когда наводим на заголовок- выводим текст в консоль
 
 const productTitle = document.querySelector('.product-title');
 
-productTitle.addEventListener('mouseover',() => {
+productTitle.addEventListener('mouseover', () => {
   console.log('Текст заголовка',productTitle.textContent);
 })
 
@@ -58,3 +68,39 @@ document.getElementById('color-toggle-button').addEventListener('click', functio
   this.classList.toggle('bg-red');
   this.classList.toggle('bg-blue');
 });
+// Инициализируем модалку и форму
+const registrationModal = new Modal('modal-container');
+const registrationForm = new Form('registration-form');
+// Слушаем кнопку открытия (в HTML id="open-modal-btn")
+const openBtn = document.getElementById('open-modal-btn');
+if (openBtn) {
+    openBtn.addEventListener('click', () => {
+        registrationModal.open();
+    });
+}
+// Обработка отправки формы
+const formElement = document.getElementById('registration-form');
+if (formElement) {
+    formElement.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const data = registrationForm.getFormData();
+        // Проверка совпадения паролей
+        if (data.password !== data.confirmPassword) {
+            alert("Пароли не совпадают!");
+            return;
+        }
+        console.log("Данные успешно собраны через классы:", data);
+        alert(`Спасибо за регистрацию, ${data.firstName}!`);
+        
+        registrationForm.clear();    // Очистить поля
+        registrationModal.close();   // Закрыть окно
+    });
+}
+const myMousse = new BeautyMousse(
+  "Увлажняющий мусс",
+  2750,
+  "Очищения",
+  ["Витамин С", "Алоэ", "Вода"]
+);
+myMousse.logBasicInfo();
+myMousse.showIngredients();
