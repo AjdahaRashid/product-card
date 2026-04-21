@@ -8,6 +8,9 @@ import { Modal } from'./Modal.js';
 import { Form } from'./Form.js';
 import { BeautyMousse } from'./BeautyMousse.js';
 
+import { Coffee } from'./Coffee.js';
+import { Tea } from'./Tea.js';
+
 
 // Покраска всех карточек
 
@@ -62,7 +65,7 @@ productTitle.addEventListener('mouseover', () => {
   console.log('Текст заголовка',productTitle.textContent);
 })
 
-// Меняем цвет кнопки
+// Меняем цвет кнопки 
 
 document.getElementById('color-toggle-button').addEventListener('click', function() {
   this.classList.toggle('bg-red');
@@ -104,3 +107,13 @@ const myMousse = new BeautyMousse(
 );
 myMousse.logBasicInfo();
 myMousse.showIngredients();
+
+// 11 дз
+const myLatte = new Coffee("Латте", "300мл", 250, 80,"Арабика", "Овсяное");
+const myGreenTea =  new Tea("Зеленый чай", "400мл", 150, 85, "Сенча");
+console.log(myLatte.getInfo());
+myLatte.serve();
+console.log(`Coffee`);
+console.log(myGreenTea.getInfo());
+myGreenTea.serve();
+console.log(`Tea`);
