@@ -8,7 +8,7 @@ if (localData === null) {
   userContainer.textContent = "Данные загружаются";
   setTimeout(() => {
     loadData();
-  },2000);
+  }, 2000);
 } else {
   displayUsers(JSON.parse(localData));
 }
@@ -30,7 +30,7 @@ function displayUsers(users) {
   userContainer.innerHTML = ''
   if (users.length === 0) {
     userContainer.textContent = "Список пуст";
-    return; 
+    return;
   }
   users.forEach(user => {
     const card = document.createElement('div');
@@ -43,13 +43,13 @@ function displayUsers(users) {
     <button class="delete-btn">Удалить</button>
     `;
 
-card.querySelector('.delete-btn').onclick = () => {
-  const currentUsers = JSON.parse(localStorage.getItem('users'));
-  const filtered = currentUsers.filter(u => u.id !== user.id);
-  localStorage.setItem('users', JSON.stringify(filtered));
-  displayUsers(filtered);
-};
-userContainer.appendChild(card);
+    card.querySelector('.delete-btn').onclick = () => {
+      const currentUsers = JSON.parse(localStorage.getItem('users'));
+      const filtered = currentUsers.filter(u => u.id !== user.id);
+      localStorage.setItem('users', JSON.stringify(filtered));
+      displayUsers(filtered);
+    };
+    userContainer.appendChild(card);
   });
 };
 
